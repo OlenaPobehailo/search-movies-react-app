@@ -1,18 +1,19 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { StyledMenuWrapper, StyledNavLink } from './Layout.styled';
 
 const Layout = () => {
   return (
     <>
-      <div>
+      <StyledMenuWrapper>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <StyledNavLink to="/">Home</StyledNavLink>
           </li>
           <li>
-            <NavLink to="movies">Movies</NavLink>
+            <StyledNavLink to="movies">Movies</StyledNavLink>
           </li>
         </ul>
-      </div>
+      </StyledMenuWrapper>
       <Outlet />
     </>
   );

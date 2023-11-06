@@ -1,8 +1,9 @@
-
 const DetailsPage = () => {
   return (
-    <div>DetailsPage</div>
-  )
-}
+    <div className="container">
+      <h1>DetailsPage</h1>
+    </div>
+  );
+};
 
-export default DetailsPage
+export default DetailsPage;
