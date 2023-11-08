@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 
 export const StyledList = styled.ul`
-  margin: 20px 0;
-
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
+  padding: 0;
+  margin: 0;
 
   li {
-    display: flex;
-    border: 1px solid lightgray;
+    flex: 0 0 calc(25% - 10px);
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
 
   img {
@@ -20,17 +23,19 @@ export const StyledList = styled.ul`
   div {
   }
 `;
+
 export const Wrapper = styled.div`
-  padding: 20px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  margin: 10px;
+  border-radius: 4px;
 `;
 
 export const Actor = styled.p`
-  font-size: 24px;
-  font-weight:500;
-  line-height: 2;
+  font-weight: bold;
 `;
 
 export const Character = styled.p`
-  font-size: 24px;
-  line-height: 2;
+  font-style: italic;
 `;

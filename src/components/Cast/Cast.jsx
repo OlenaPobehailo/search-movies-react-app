@@ -9,13 +9,12 @@ const Cast = () => {
   const [cast, { isLoading, error }] = useHttpRequest(fetchCast, movieId);
 
   if (!cast || isLoading) {
-    return <Loader/>;
+    return <Loader />;
   }
-  
+
   if (error) {
     return <p>Error: {error}</p>;
   }
-
 
   if (!isLoading && (!cast || cast.length === 0)) {
     return <h2>No cast information available.</h2>;
@@ -27,10 +26,10 @@ const Cast = () => {
         cast.map(item => (
           <li key={item.id}>
             <img
-              src={`${basePosterUrl}${item.profile_path}` }
+              src={`${basePosterUrl}${item.profile_path}`}
               alt={item.name}
               onError={e => {
-                e.target.src = 'https://placehold.co/350x500?text=Not+available';
+                e.target.src = 'https://placehold.co/300x450?text=Photo+not+available';
               }}
             />
             <Wrapper>
