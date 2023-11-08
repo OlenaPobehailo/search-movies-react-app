@@ -1,10 +1,10 @@
 import Loader from 'components/Loader';
 import MovieList from 'components/MovieList';
 import { useHttpRequest } from 'hooks/useHttpRequest';
-import { trendingMoviesUrl } from 'services/api';
+import { fetchTrendingMovies } from 'services/api';
 
 const HomePage = () => {
-  const [trendingMovies, { isLoading, error }] = useHttpRequest(trendingMoviesUrl);
+  const [trendingMovies, { isLoading, error }] = useHttpRequest(fetchTrendingMovies);
 
   return (
     <div className="container">

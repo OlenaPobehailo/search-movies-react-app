@@ -1,26 +1,23 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-export const useHttpRequest = (url, param) => {
+export const useHttpRequest = (fn, param) => {
   const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
+    setLoading(true);
 
-    const fetchData = async () => {
-      try {
-        const response = await axios(url, param);
-        setData(response.data.results);
-      } catch (error) {
+    fn(param)
+      .then(data => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch(error => {
         setError(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchData();
-  }, [param, url]);
+        setLoading(false);
+      });
+  }, [fn, param]);
 
-  return [data, { isLoading, error }];
+  return [data, setData, { error, isLoading }];
 };
