@@ -1,10 +1,9 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { StyledList } from './MovieList.styled';
 
 const MovieList = ({ movies }) => {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   return (
     <StyledList>
       {movies &&
