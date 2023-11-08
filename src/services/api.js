@@ -31,3 +31,9 @@ export const fetchReviews = async id => {
   // console.log(data.results);
   return data.results;
 };
+
+export const fetchMoviesByQuery = async query => {
+  const { data } = await axios.get(`/search/movie?query=${query}`);
+  // console.log(data.results);
+  return data.results;
+};
