@@ -17,8 +17,8 @@ const HomePage = () => {
     dispatch(fetchTrendingMovies());
   }, [dispatch]);
 
-  console.log(trendingMovies);
-  console.log(isLoading);
+  // console.log(trendingMovies);
+  // console.log(isLoading);
   return (
     <div className="container">
       {isLoading && <Loader />}
