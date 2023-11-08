@@ -6,17 +6,19 @@ export const useHttpRequest = (fn, param) => {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-
-    fn(param)
-      .then(data => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch(error => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await fn(param);
+        setData(response);
+      } catch (error) {
         setError(error.message);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchData();
   }, [fn, param]);
 
   return [data, setData, { error, isLoading }];
