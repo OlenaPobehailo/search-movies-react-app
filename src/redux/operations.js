@@ -20,3 +20,16 @@ export const fetchMovieById = createAsyncThunk('movies/fetchById', async (id, th
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const fetchMoviesByQuery = createAsyncThunk(
+  'search/fetchByQuery',
+  async (query, thunkAPI) => {
+    try {
+      const { data } = await axios.get(`/search/movie?query=${query}`);
+      console.log(data.results);
+      return data.results;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -1,39 +1,36 @@
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Loader from 'components/Loader';
 import MovieList from 'components/MovieList';
 import SearchForm from 'components/SearchForm';
-import { useHttpRequest } from 'hooks/useHttpRequest';
-import { fetchMoviesByQuery } from 'services/api';
+
+import { fetchMoviesByQuery } from 'redux/operations';
+import { selectSearchError, selectSearchLoading, selectSearchResults } from 'redux/selectors';
 
 const MoviesPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams({
-    searchStr: '',
-  });
-  const searchQuery = searchParams.get('searchStr');
-
-  const [searchMovies, { isLoading, error }] = useHttpRequest(
-    fetchMoviesByQuery,
-    searchQuery
-  );
+  const dispatch = useDispatch();
 
   const [searchPerformed, setSearchPerformed] = useState(false);
 
+  const searchMovies = useSelector(selectSearchResults);
+  const isLoading = useSelector(selectSearchLoading);
+  const error = useSelector(selectSearchError);
+
+  // console.log(searchMovies);
+
   const handleSearch = searchStr => {
-    setSearchParams({ searchStr });
+    dispatch(fetchMoviesByQuery(searchStr));
     setSearchPerformed(true);
   };
 
   return (
     <div className="container">
-      <SearchForm onSubmit={handleSearch}/>
+      <SearchForm onSubmit={handleSearch} />
       {isLoading && <Loader />}
       {error && <p>Error: {error}</p>}
 
-      {searchPerformed &&
-      !isLoading &&
-      searchMovies &&
-      searchMovies.length === 0 ? (
+      {searchPerformed && !isLoading && searchMovies && searchMovies.length === 0 ? (
         <h1>No movies found</h1>
       ) : (
         searchMovies && <MovieList movies={searchMovies} />
