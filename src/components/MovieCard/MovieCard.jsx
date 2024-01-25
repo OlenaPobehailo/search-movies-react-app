@@ -1,4 +1,3 @@
-import React from "react";
 import { MovieImage, MovieTitle, StyledCard } from "./MovieCard.styled";
 import { basePosterUrl } from "services/api";
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { basePosterUrl } from 'services/api';
 import { Additional, Info, StyledWrapper } from './Details.styled';
 import { Link, Outlet } from 'react-router-dom';

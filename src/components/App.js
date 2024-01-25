@@ -1,15 +1,16 @@
-import { Route, Routes } from 'react-router-dom';
-import HomePage from 'pages/HomePage';
-import MoviesPage from 'pages/MoviesPage';
-import DetailsPage from 'pages/DetailsPage';
-import NotFoundPage from 'pages/NotFoundPage';
-import Layout from 'components/Layout';
-import Cast from 'components/Cast';
-import Reviews from 'components/Reviews';
+import { Route, Routes } from "react-router-dom";
+import HomePage from "pages/HomePage";
+import MoviesPage from "pages/MoviesPage";
+import DetailsPage from "pages/DetailsPage";
+import NotFoundPage from "pages/NotFoundPage";
+import Layout from "components/Layout";
+import Cast from "components/Cast";
+import Reviews from "components/Reviews";
+import { StyledCommonWrapper } from "styles/Common.styled";
 
 function App() {
   return (
-    <div>
+    <StyledCommonWrapper>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -22,7 +23,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </div>
+    </StyledCommonWrapper>
   );
 }
 

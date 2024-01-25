@@ -5,7 +5,7 @@ export const StyledList = styled.ul`
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   font-size: 18px;
   line-height: 1.5;
 `;
-
