@@ -1,4 +1,4 @@
-# Search Moie App
+# Search Movie App
 ## A simple React application for searching movies using The Movie Database (TMDB) API.
 
 ### Features:
