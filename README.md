@@ -2,7 +2,7 @@
 ## A simple React application for searching movies using The Movie Database (TMDB) API.
 
 ### Features:
-** Search Bar: ** Users can enter keywords in the search bar to find movies.
+__Search Bar:__ Users can enter keywords in the search bar to find movies.
 ** Results Display: ** Display of search results with movie posters and titles.
 ** Details Page: ** Clicking on a movie displays detailed information, including cast, and reviews.
 ** Responsive Design: ** The app is designed to be responsive, ensuring a seamless experience across devices.
